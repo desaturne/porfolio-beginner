@@ -202,10 +202,11 @@
 
             <div class="group">
                 <div class="text">
-                    I'd love to hear from you! Whether you have a question, want to collaborate on a project, or just want to say hi, feel free to reach out. You can contact me through the form below, or connect with
+                    I'd love to hear from you! Whether you have a question, want to collaborate on a project, or just
+                    want to say hi, feel free to reach out. You can contact me through the form below, or connect with
                     me on different platforms.
                 </div>
-                
+
                 <form id="customForm">
                     <label for="name">Name</label>
                     <input type="text" id="name" required>
@@ -219,40 +220,40 @@
                     <button type="submit">Send Message</button>
                 </form>
 
-                    <script>
-                        document.getElementById("customForm").addEventListener("submit", function (event) {
-                            event.preventDefault();
+                <script>
+                    document.getElementById("customForm").addEventListener("submit", function (event) {
+                        event.preventDefault();
 
-                            const formData = new FormData();
-                            formData.append("name", document.getElementById("name").value);
-                            formData.append("email", document.getElementById("email").value);
-                            formData.append("message", document.getElementById("message").value);
+                        const formData = new FormData();
+                        formData.append("name", document.getElementById("name").value);
+                        formData.append("email", document.getElementById("email").value);
+                        formData.append("message", document.getElementById("message").value);
 
-                            const scriptURL = "https://script.google.com/macros/s/AKfycbxXD36E1-oq7wJqORDJDePKHuuDVGeCGgRXEnGDivM2QZPcwrT5v2XmTlW0SPEjaBfDBA/exec";
-                            fetch(scriptURL, {
-                                method: "POST",
-                                body: formData
+                        const scriptURL = "https://script.google.com/macros/s/AKfycbxXD36E1-oq7wJqORDJDePKHuuDVGeCGgRXEnGDivM2QZPcwrT5v2XmTlW0SPEjaBfDBA/exec";
+                        fetch(scriptURL, {
+                            method: "POST",
+                            body: formData
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    alert("Your response has been submitted successfully!");
+                                } else {
+                                    alert("Error: " + data.error);
+                                }
+                                document.getElementById("customForm").reset();
                             })
-                                .then(response => response.json())
-                                .then(data => {
-                                    if (data.success) {
-                                        alert("Your response has been submitted successfully!");
-                                    } else {
-                                        alert("Error: " + data.error);
-                                    }
-                                    document.getElementById("customForm").reset();
-                                })
-                                .catch(error => {
-                                    console.error("Error:", error);
-                                    alert("There was an error submitting your response.");
-                                });
-                        });
+                            .catch(error => {
+                                console.error("Error:", error);
+                                alert("There was an error submitting your response.");
+                            });
+                    });
 
 
 
-                    </script>
+                </script>
 
-                </div>
+            </div>
         </section>
     </main>
 
@@ -291,7 +292,7 @@
             }
         });
     </script>
-    
+
 </body>
 
 </html>
