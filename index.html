@@ -22,14 +22,14 @@
 
     <link rel="stylesheet" href="styles.css">
 
-    <title>Portfolio</title>
+    <title>Sushma Shrestha</title>
 </head>
 
 <body>
     <!-- NAVBAR -->
     <nav>
         <div class="left">
-            <a href="/">Sushma Shrestha</a>
+            <h3>Welcome,</h3>
         </div>
 
         <div class="right">
@@ -99,7 +99,8 @@
         <section id="skills" class="skills-section">
             <h2>Skills</h2>
             <div class="text">
-                As an ardent learner, I have cultivated a diverse set of skills that enable me to create user-friendly digital experiences. My technical proficiency includes:
+                As an ardent learner, I have cultivated a diverse set of skills that enable me to create user-friendly
+                digital experiences. My technical proficiency includes:
             </div>
 
             <div class="cells">
@@ -201,24 +202,64 @@
 
             <div class="group">
                 <div class="text">
-                    I'd love to hear from you! Whether you have a question, want to collaborate on a project, or just want to say hi, feel free to reach out. You can contact me through the form below, or connect with me on different platforms.
+                    I'd love to hear from you! Whether you have a question, want to collaborate on a project, or just want to say hi, feel free to reach out. You can contact me through the form below, or connect with
+                    me on different platforms.
                 </div>
-
-                <form>
+                
+                <form id="customForm">
                     <label for="name">Name</label>
-                    <input type="text" id="name">
+                    <input type="text" id="name" required>
 
                     <label for="email">Email</label>
-                    <input type="email" id="email">
+                    <input type="email" id="email" required>
 
                     <label for="message">Message</label>
-                    <textarea id="message" cols="30" rows="10"></textarea>
+                    <textarea id="message" cols="30" rows="10" required></textarea>
 
                     <button type="submit">Send Message</button>
                 </form>
-            </div>
+
+                    <script>
+                        document.getElementById("customForm").addEventListener("submit", function (event) {
+                            event.preventDefault();
+
+                            const formData = new FormData();
+                            formData.append("name", document.getElementById("name").value);
+                            formData.append("email", document.getElementById("email").value);
+                            formData.append("message", document.getElementById("message").value);
+
+                            const scriptURL = "https://script.google.com/macros/s/AKfycbxXD36E1-oq7wJqORDJDePKHuuDVGeCGgRXEnGDivM2QZPcwrT5v2XmTlW0SPEjaBfDBA/exec";
+                            fetch(scriptURL, {
+                                method: "POST",
+                                body: formData
+                            })
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data.success) {
+                                        alert("Your response has been submitted successfully!");
+                                    } else {
+                                        alert("Error: " + data.error);
+                                    }
+                                    document.getElementById("customForm").reset();
+                                })
+                                .catch(error => {
+                                    console.error("Error:", error);
+                                    alert("There was an error submitting your response.");
+                                });
+                        });
+
+
+
+                    </script>
+
+                </div>
         </section>
     </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Sushma Shrestha. All rights reserved.</p>
+    </footer>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
@@ -250,6 +291,7 @@
             }
         });
     </script>
+    
 </body>
 
 </html>
