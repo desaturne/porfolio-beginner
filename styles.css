@@ -289,8 +289,8 @@ body, html {
 
 /* Footer */
 footer {
-  background-color: bbbcbe; /* Dark background for contrast */
-  color: #000000; /* White text */
+  background-color: #f7f9fb;
+  color: #000000; 
   text-align: center;
   padding: 15px 20px;
   font-size: 14px;
@@ -310,7 +310,6 @@ footer {
       padding: 10px;
   }
 }
-
 
 /* Responsiveness */
 @media (max-width: 850px) {
