@@ -18,7 +18,7 @@ body {
   font-family: "Poppins", sans-serif;
   color: var(--text-color);
   background-color: var(--background-color);
-  max-width: 2000px;
+  max-width: 2500px;
   margin: 0 auto;
 }
 
@@ -309,6 +309,25 @@ footer {
       font-size: 12px; /* Slightly smaller font on smaller screens */
       padding: 10px;
   }
+}
+
+/* Custom Scrollbar */
+body::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the scrollbar track */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #888; /* Greyish color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+  height: 50px; /* Consistent height of the scrollbar thumb */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker grey color of the scrollbar thumb on hover */
 }
 
 /* Responsiveness */
